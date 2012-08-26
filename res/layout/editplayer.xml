@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/submitlayerbutton"
+        android:choiceMode="multipleChoice"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textEnterPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/textEnterPlayerName" />
+
+    <EditText
+        android:id="@+id/enterName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textEnterPlayerName"
+        android:inputType="textPersonName"
+        android:text="@string/entername" />
+
+    <TextView
+        android:id="@+id/textEnterPlayerDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/enterName"
+        android:text="@string/textEnterPlayerDesc" />
+
+    <EditText
+        android:id="@+id/enterDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textEnterPlayerDesc"
+        android:inputType="textNoSuggestions"
+        android:text="@string/enterdescription" />
+
+  <Button
+        android:id="@+id/submitplayerbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="submitPlayerButton"
+        android:text="@string/submitplayerbutton" />   
+    
+</RelativeLayout>

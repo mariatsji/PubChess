@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/enterTournamentName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
+        android:text="@string/entertournamentname" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submittournamentbuttonamentName"
+        android:choiceMode="multipleChoice"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/submittournamentbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="submitTournamentButton"
+        android:text="@string/submittournamentbutton" />
+
+    <ToggleButton
+        android:id="@+id/toggleRoundRobinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/enterTournamentName"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/doubleRoundRobinOn" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/toggleRoundRobinButton"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/toggleRoundRobinButton"
+        android:text="@string/toggleRoundRobinText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

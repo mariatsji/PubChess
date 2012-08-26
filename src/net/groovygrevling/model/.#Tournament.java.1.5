@@ -1,0 +1,154 @@
+package net.groovygrevling.model;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+
+import android.util.Log;
+
+import net.groovygrevling.PubChessActivity;
+
+public class Tournament {
+
+	private String id;
+	private String description;
+	private Date playedDate;
+	private ArrayList<Player> players;
+	private ArrayList<Match> matches;
+	private TournamentStanding standing;
+	private boolean doubleRoundRobin;
+	
+	public Tournament(String description, boolean doubleRoundRobin) {
+		super();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+		this.id = description.trim().replaceAll("\\s", "").toLowerCase() +
+				sdf.format(Calendar.getInstance().getTime());
+		this.description = description;
+		this.players = new ArrayList<Player>();
+		this.matches = new ArrayList<Match>();
+		this.playedDate = new Date();
+		this.setDoubleRoundRobin(doubleRoundRobin);
+	}
+	
+	public void addPlayer(Player p){
+		
+		players.add(p);
+		Log.d(PubChessActivity.TAG, "Adding player " + p.getId() + " to tournament. list size is now : " + players.size());
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getPlayedDate() {
+		return playedDate;
+	}
+
+	public void setPlayedDate(Date playedDate) {
+		this.playedDate = playedDate;
+	}
+
+	public ArrayList<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(ArrayList<Player> players) {
+		this.players = players;
+	}
+
+	public ArrayList<Match> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(ArrayList<Match> matches) {
+		this.matches = matches;
+	}
+
+	public TournamentStanding getStanding() {
+		return standing;
+	}
+
+	public void setStanding(TournamentStanding standing) {
+		this.standing = standing;
+	}
+	
+	private ArrayList<Match> randomize(ArrayList<Match> matches){
+		Collections.shuffle(matches);
+		return matches;
+	}
+	
+	public void drawSingleRoundRobin() {
+		ArrayList<Match> sortedMatch = new ArrayList<Match>();
+		Collections.shuffle(players);
+		for(int x = 1 ; x <= Math.floor(players.size() / 2); x ++){
+			for(int i = 0 ; i < players.size(); i ++){
+				//reverse every other loop
+				Player first = null;
+				Player second = null;
+				if(x%2==0){
+					first = players.get(i);
+					second = players.get((i + x) % players.size());	
+				} else {
+					second = players.get(i);
+					first = players.get((i + x) % players.size());
+				}
+				Log.d(PubChessActivity.TAG, "Creating match between " + first.getId() + " and " + second.getId());
+				String matchId = first.getId() + second.getId() + getId();
+				sortedMatch.add(new Match(matchId, first, second, Calendar.getInstance().getTime(), this));
+			}
+		}
+		setMatches(sortedMatch);
+		
+	}
+	
+	public void drawDoubleRoundRobin(){
+		ArrayList<Match> sortedMatch = new ArrayList<Match>();
+		//create sorted double round robin list
+		for(Player p : players){
+			Log.d(PubChessActivity.TAG, "Player in tournament : " + p.getId());
+		}
+		for(int i = 0 ; i < players.size() ; i ++){
+			Player first = players.get(i);
+			for(int j = 0 ; j < players.size() ; j++){
+				Player second = players.get(j);
+				if(!first.getId().equals(second.getId())){
+					Log.d(PubChessActivity.TAG, "Creating match between " + first.getId() + " and " + second.getId());
+					String matchId = first.getId() + second.getId() + getId();
+					sortedMatch.add(new Match(matchId, first, second, Calendar.getInstance().getTime(), this));
+				}
+			}
+		}
+		Log.d(PubChessActivity.TAG, "Sorted match size " + sortedMatch.size());
+		setMatches(randomize(sortedMatch));
+	}
+
+	public boolean isDoubleRoundRobin() {
+		return doubleRoundRobin;
+	}
+
+	public void setDoubleRoundRobin(boolean doubleRoundRobin) {
+		this.doubleRoundRobin = doubleRoundRobin;
+	}
+
+	@Override
+	public String toString() {
+		return "Tournament [id=" + id + ", description=" + description
+				+ ", playedDate=" + playedDate + ", players=" + players
+				+ ", matches=" + matches + ", doubleRoundRobin=" + doubleRoundRobin + "]";
+	}
+	
+}

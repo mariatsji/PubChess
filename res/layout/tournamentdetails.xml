@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/tournamentDetailsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/tournamentDetails"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+ 
+ 
+ 	<ScrollView
+        android:id="@+id/tournamentDetailsInnerPane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tournamentDetailsBackButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tournamentDetailsTitle"
+        android:scrollbars="vertical"
+        android:layout_marginTop="21dp" >
+    </ScrollView>
+    
+    
+    <Button
+        android:id="@+id/tournamentDetailsBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="tournamentDetailsBackButton"
+        android:text="@string/tournamentDetailsBackButton" />
+
+</RelativeLayout>

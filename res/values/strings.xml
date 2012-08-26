@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  global -->
+    <string name="homebutton">Home</string>
+    <string name="emptyset">Empty set</string>
+    
+    <!--  welcome -->
+    <string name="hello">Pub Chess - The application for Elo rated pub chess tournaments!</string>
+    <string name="app_name">Pub Chess</string>
+    <string name="welcomeInstructions">Press Players to edit existing players, or Tournament if all
+        participants are already registered.</string>
+    
+    <!--  players -->
+    <string name="playerbutton">Players</string>
+    <string name="newplayerbutton">New Player</string>
+    <string name="playershello">Pub Chess Players</string>
+    <string name="entername"></string>
+    <string name="enterdescription"></string>
+    <string name="submitplayerbutton">Save Player</string>
+    
+    <!--  tournaments -->
+    <string name="tournamentbutton">Tournament</string>
+    <string name="tournamentshello">Pub Chess Tournaments</string>
+    <string name="newtournamentbutton">New Tournament</string>
+    <string name="entertournamentname"></string>
+    <string name="submittournamentbutton">Create Tournament</string>
+    <string name="toggleRoundRobinText">Double Round Robin</string>
+    <string name="doubleRoundRobinOn">On</string>
+    <string name="finishTournamentButton">Show Result</string>
+    <string name="cancelTournamentButton">Cancel Tournament</string>
+    
+    <!-- participants -->
+    <string name="starttournamentbutton">Start Tournament</string>
+    <string name="participantsInstructions">Select the participants for this tournament and click \'Start Tournament\'</string>
+    <string name="tournamenthomebutton">Home</string>
+    
+    <!--  matches -->
+    <string name="matchesTitle">Matches</string>
+    
+    <!--  result -->
+    <string name="homeResultButton">Home</string>
+    <string name="resultTitle">Tournament result</string>
+    
+    <!--  playerdetails -->
+    <string name="playerDetailsBackButton">Back</string>
+    <string name="playersDetailsTitle">Player details</string>
+    <string name="textEnterPlayerName">Player name</string>
+    <string name="textEnterPlayerDesc">Player desc</string>
+    
+    <!--  tournamentdetails -->
+    <string name="tournamentDetails">Tournament details</string>
+    <string name="tournamentDetailsBackButton">Back</string>
+    
+
+</resources>

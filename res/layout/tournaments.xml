@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tournamentstextview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tournamentshello" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newtournamentbutton"
+        android:layout_below="@+id/tournamentstextview"
+        android:choiceMode="multipleChoice" />
+
+    <Button
+        android:id="@+id/homebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="homeButton"
+        android:text="@string/homebutton" />
+
+    <Button
+        android:id="@+id/newtournamentbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="newTournamentButton"
+        android:text="@string/newtournamentbutton" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarTournament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="41dp"
+        android:layout_toLeftOf="@+id/homebutton" />
+
+</RelativeLayout>
